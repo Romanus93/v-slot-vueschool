@@ -1,13 +1,15 @@
 <template>
   <AppUserList>
-    <!-- <template #secondrow="{ remove, item: user }">
-      <a :href="'phone:' + user.email">{{ user.email }}</a> <br />
-      <AppButton @click="remove(user)">{{ user.name.first }}</AppButton>
-    </template> -->
     <template #loading>
       <AppSpinner />
     </template>
-    <AppUserCardsList></AppUserCardsList>
+    <template #userlist="{ list, remove }">
+      <AppUserCardsList :list="list">
+        <template #secondrow="{ item: user }">
+          <AppButton @click="remove(user)">{{ user.name.first }}</AppButton>
+        </template>
+      </AppUserCardsList>
+    </template>
   </AppUserList>
 </template>
 

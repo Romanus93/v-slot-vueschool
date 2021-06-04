@@ -6,6 +6,7 @@
       name="userlist"
       :count="data.results.length"
       :list="data.results"
+      :remove="remove"
       v-if="state === 'loaded'"
     >
       <ul class="userlist">
