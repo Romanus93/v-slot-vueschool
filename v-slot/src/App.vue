@@ -3,7 +3,7 @@
     <template #userlist="{ list, count }">
       <pre>
         {{ count }}
-        {{ list }}
+        <AppUserCardsList :list="list" ></AppUserCardsList>
       </pre>
     </template>
     <template #loading>
@@ -20,6 +20,7 @@ import { defineComponent } from "vue";
 import AppUserList from "./components/AppUserList.vue";
 import AppSpinner from "./components/AppSpinner.vue";
 import PropsFunction from "./components/PropsFunction.vue";
+import AppUserCardsList from "./components/AppUserCardsList.vue";
 
 export default defineComponent({
   name: "App",
@@ -27,6 +28,7 @@ export default defineComponent({
     AppUserList,
     AppSpinner,
     PropsFunction,
+    AppUserCardsList,
   },
   data() {
     return {
