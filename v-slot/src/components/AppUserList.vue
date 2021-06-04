@@ -13,7 +13,10 @@
           />
           <div>
             <div>{{ item.name.first }}</div>
-            <slot name="secondrow" :item="item"></slot>
+            <div>
+              {{ secondrow(item) }}
+              <!-- <slot name="secondrow" :item="item"></slot> -->
+            </div>
           </div>
         </div>
       </li>
@@ -34,6 +37,14 @@ const states = {
 };
 
 export default {
+  props: {
+    secondrow: {
+      type: Function,
+      default: (user) => {
+        user.email;
+      },
+    },
+  },
   data() {
     return {
       state: "idle",
@@ -44,6 +55,7 @@ export default {
   },
   mounted() {
     this.load();
+    console.log(this.secondrow);
   },
   methods: {
     async load() {
