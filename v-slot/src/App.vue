@@ -1,12 +1,20 @@
 <template>
   <AppUserList>
-    <template :secondrow="(user) => user.email"> </template>
+    <template #secondrow="slotProps">
+      <a :href="'tel:' + slotProps.item.phone">
+        {{ slotProps.item.phone }}
+      </a>
+      <a :href="'mailto:' + slotProps.item.email">
+        {{ slotProps.item.email }}
+      </a>
+      {{ ad(slotProps) }}
+    </template>
     <template #loading>
       <AppSpinner />
     </template>
   </AppUserList>
   <h2>ex</h2>
-  <props-function :func="(par) => par + 'k'"></props-function>
+  <props-function :func="(par) => par + 'k'" :type="ask"></props-function>
 </template>
 
 <script lang="ts">
@@ -21,6 +29,14 @@ export default defineComponent({
     AppUserList,
     AppSpinner,
     PropsFunction,
+  },
+  data() {
+    return {
+      ask: "hi",
+    };
+  },
+  methods: {
+    ad: (par: any): void => console.log(par),
   },
 });
 </script>

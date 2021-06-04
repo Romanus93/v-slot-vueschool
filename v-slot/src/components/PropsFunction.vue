@@ -1,6 +1,7 @@
 <template>
   <h1>hello</h1>
   {{ func("hi") }}
+  <a :href="url">{{ type }}</a>
 </template>
 
 <script lang="ts">
@@ -12,6 +13,14 @@ export default defineComponent({
       type: Function,
       default: () => {},
     },
+    type: {
+      type: String,
+    },
+  },
+  data() {
+    return {
+      url: "https://www.naver.com",
+    };
   },
 });
 </script>
