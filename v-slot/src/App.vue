@@ -1,25 +1,19 @@
 <template>
   <AppUserList>
     <template #userlist="{ list, count }">
-      <pre>
-        {{ count }}
-        <AppUserCardsList :list="list" ></AppUserCardsList>
-      </pre>
+      {{ count }}
+      <AppUserCardsList :list="list" />
     </template>
     <template #loading>
       <AppSpinner />
     </template>
-    <template #footer> hhhhhhhhhh </template>
   </AppUserList>
-  <h2>ex</h2>
-  <props-function :func="(par) => par + 'k'" :type="ask"></props-function>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import AppUserList from "./components/AppUserList.vue";
 import AppSpinner from "./components/AppSpinner.vue";
-import PropsFunction from "./components/PropsFunction.vue";
 import AppUserCardsList from "./components/AppUserCardsList.vue";
 
 export default defineComponent({
@@ -27,16 +21,7 @@ export default defineComponent({
   components: {
     AppUserList,
     AppSpinner,
-    PropsFunction,
     AppUserCardsList,
-  },
-  data() {
-    return {
-      ask: "hi",
-    };
-  },
-  methods: {
-    ad: (par: any): void => console.log(par),
   },
 });
 </script>

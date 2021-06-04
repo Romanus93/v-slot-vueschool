@@ -20,7 +20,7 @@
               />
               <div>
                 <div>{{ item.name.first }}</div>
-                <!-- <slot name="secondrow" :item="item" :phone="item.phone"></slot> -->
+                <!-- <slot name="secondrow" :item="item"></slot> -->
               </div>
             </div>
           </slot>
@@ -31,10 +31,6 @@
     <slot v-if="state === 'failed'" name="error">
       Oops, something went wrong.
     </slot>
-    <div>
-      hihihihih
-      <slot name="footer"></slot>
-    </div>
   </section>
 </template>
 
@@ -57,7 +53,6 @@ export default {
   },
   mounted() {
     this.load();
-    console.log(this.secondrow);
   },
   methods: {
     async load() {
@@ -82,7 +77,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .userlist {
   margin: 10px;
 }
