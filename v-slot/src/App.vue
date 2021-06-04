@@ -1,9 +1,8 @@
 <template>
   <AppUserList>
-    <template #secondrow="{ item, remove }">
-      <a :href="'phone:' + item.email">{{ item.email }}</a> <br />
-      <AppButton @click="log(item.name.first)">remove</AppButton>
-      <AppButton @click="remove(item)">{{ item.name.first }}</AppButton>
+    <template #secondrow="{ remove, item: user }">
+      <a :href="'phone:' + user.email">{{ user.email }}</a> <br />
+      <AppButton @click="remove(user)">{{ user.name.first }}</AppButton>
     </template>
     <template #loading>
       <AppSpinner />
@@ -23,11 +22,6 @@ export default defineComponent({
     AppUserList,
     AppButton,
     AppSpinner,
-  },
-  methods: {
-    log(text: string): void {
-      console.log(text);
-    },
   },
 });
 </script>
