@@ -20,7 +20,7 @@
               />
               <div>
                 <div>{{ item.name.first }}</div>
-                <slot name="secondrow" :item="item"> </slot>
+                <slot name="secondrow" :item="item" :remove="remove"></slot>
               </div>
             </div>
           </slot>
@@ -43,6 +43,12 @@ const states = {
 };
 
 export default {
+  props: {
+    secondrow: {
+      type: Function,
+      default: () => {},
+    },
+  },
   data() {
     return {
       state: "idle",
@@ -72,6 +78,11 @@ export default {
         this.error = error;
         return error;
       }
+    },
+    remove(item) {
+      this.data.results = this.data.results.filter(
+        (entry) => entry.email !== item.email
+      );
     },
   },
 };
