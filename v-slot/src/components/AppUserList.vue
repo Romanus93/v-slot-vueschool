@@ -40,9 +40,7 @@ export default {
   props: {
     secondrow: {
       type: Function,
-      default: (user) => {
-        user.email;
-      },
+      default: (user) => user.email,
     },
   },
   data() {
