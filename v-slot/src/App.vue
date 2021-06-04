@@ -1,12 +1,9 @@
 <template>
   <AppUserList>
-    <template #secondrow="{ item }">
-      <a :href="'tel:' + item.phone">
-        {{ item.phone }}
-      </a>
-      <a :href="'mailto:' + item.email">
-        {{ item.email }}
-      </a>
+    <template #listItem="user">
+      <pre>
+        {{ user }}
+      </pre>
     </template>
     <template #loading>
       <AppSpinner />

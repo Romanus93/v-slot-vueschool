@@ -4,18 +4,20 @@
     <slot name="title">Users</slot>
     <ul class="userlist" v-if="state === 'loaded'">
       <li v-for="item in data.results" :key="item.email">
-        <div>
-          <img
-            width="48"
-            height="48"
-            :src="item.picture.large"
-            :alt="item.name.first + ' ' + item.name.last"
-          />
+        <slot name="listItem" :user="item">
           <div>
-            <div>{{ item.name.first }}</div>
-            <slot name="secondrow" :item="item" :phone="item.phone"></slot>
+            <img
+              width="48"
+              height="48"
+              :src="item.picture.large"
+              :alt="item.name.first + ' ' + item.name.last"
+            />
+            <div>
+              <div>{{ item.name.first }}</div>
+              <!-- <slot name="secondrow" :item="item" :phone="item.phone"></slot> -->
+            </div>
           </div>
-        </div>
+        </slot>
       </li>
     </ul>
     <slot v-else name="loading"> loading... </slot>
