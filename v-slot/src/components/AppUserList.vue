@@ -22,6 +22,10 @@
     <slot v-if="state === 'failed'" name="error">
       Oops, something went wrong.
     </slot>
+    <div>
+      hihihihih
+      <slot name="footer"></slot>
+    </div>
   </section>
 </template>
 

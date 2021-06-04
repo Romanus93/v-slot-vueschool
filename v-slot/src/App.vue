@@ -1,17 +1,17 @@
 <template>
   <AppUserList>
-    <template #secondrow="slotProps">
-      <a :href="'tel:' + slotProps.item.phone">
-        {{ slotProps.item.phone }}
+    <template #secondrow="{ item }">
+      <a :href="'tel:' + item.phone">
+        {{ item.phone }}
       </a>
-      <a :href="'mailto:' + slotProps.item.email">
-        {{ slotProps.item.email }}
+      <a :href="'mailto:' + item.email">
+        {{ item.email }}
       </a>
-      {{ ad(slotProps) }}
     </template>
     <template #loading>
       <AppSpinner />
     </template>
+    <template #footer> hhhhhhhhhh </template>
   </AppUserList>
   <h2>ex</h2>
   <props-function :func="(par) => par + 'k'" :type="ask"></props-function>
