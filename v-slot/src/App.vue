@@ -1,8 +1,9 @@
 <template>
   <AppUserList>
-    <template #userlist="userObj">
+    <template #userlist="{ list, count }">
       <pre>
-        {{ userObj }}
+        {{ count }}
+        {{ list }}
       </pre>
     </template>
     <template #loading>
