@@ -2,24 +2,31 @@
 <template>
   <section>
     <slot name="title">Users</slot>
-    <ul class="userlist" v-if="state === 'loaded'">
-      <li v-for="item in data.results" :key="item.email">
-        <slot name="listItem" :user="item">
-          <div>
-            <img
-              width="48"
-              height="48"
-              :src="item.picture.large"
-              :alt="item.name.first + ' ' + item.name.last"
-            />
+    <slot
+      name="userlist"
+      :count="data.results.length"
+      :list="data.results"
+      v-if="state === 'loaded'"
+    >
+      <ul class="userlist">
+        <li v-for="item in data.results" :key="item.email">
+          <slot name="listitem" :user="item">
             <div>
-              <div>{{ item.name.first }}</div>
-              <!-- <slot name="secondrow" :item="item" :phone="item.phone"></slot> -->
+              <img
+                width="48"
+                height="48"
+                :src="item.picture.large"
+                :alt="item.name.first + ' ' + item.name.last"
+              />
+              <div>
+                <div>{{ item.name.first }}</div>
+                <!-- <slot name="secondrow" :item="item" :phone="item.phone"></slot> -->
+              </div>
             </div>
-          </div>
-        </slot>
-      </li>
-    </ul>
+          </slot>
+        </li>
+      </ul>
+    </slot>
     <slot v-else name="loading"> loading... </slot>
     <slot v-if="state === 'failed'" name="error">
       Oops, something went wrong.
