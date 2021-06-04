@@ -20,7 +20,7 @@
               />
               <div>
                 <div>{{ item.name.first }}</div>
-                <!-- <slot name="secondrow" :item="item"></slot> -->
+                <slot name="secondrow" :item="item"> </slot>
               </div>
             </div>
           </slot>
